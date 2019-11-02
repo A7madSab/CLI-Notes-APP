@@ -1,21 +1,25 @@
-console.log("Starting App")
-
-const fs = require("fs")
-const os = require("os")
 const _ = require("lodash")
+const yargs = require("yargs")
+const { argv } = yargs
 
 const notes = require("./notes")
+const command = argv._[0]
 
-// console.log(_.isString("asd"))
-// console.log(_.isString(0))
-
-const filteredArray = _.uniq(["Ahmad", 1, "Ahmad"])
-console.log(filteredArray)
-
-const data = [
-    {
-        age: notes.id
-    }
-]
-
-fs.appendFileSync("greeting.txt", JSON.stringify(data))
+switch (command) {
+    case 'add':
+        // console.log("add")
+        notes.addNote(argv.title, argv.body)
+        break
+    case 'list':
+        notes.getAll()
+        break
+    case 'read':
+        notes.read(argv.title)
+        break
+    case 'delete':
+        notes.remove(argv.title)
+        break
+    default:
+        console.log("not Ava")
+        break
+}
