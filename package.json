@@ -1,0 +1,10 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "description": "tutorial",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
